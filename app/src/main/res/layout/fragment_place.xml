@@ -28,7 +28,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_marginBottom="10dp"
-            android:hint="请输入地址"
+            android:hint="请输入地址second1"
             android:background="@drawable/search_bg"/>
 
     </FrameLayout>
