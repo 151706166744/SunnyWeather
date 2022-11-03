@@ -57,16 +57,16 @@ class WeatherActivity : AppCompatActivity() {
                 Toast.makeText(this, "无法成功获取天气信息", Toast.LENGTH_SHORT).show()
                 result.exceptionOrNull()?.printStackTrace()
             }
-          //  swipeRefresh.isRefreshing = false
+            swipeRefresh.isRefreshing = false
         })
-       // swipeRefresh.setColorSchemeResources(R.color.colorPrimary)
+        swipeRefresh.setColorSchemeResources(R.color.colorPrimary)
         refreshWeather()
-        //swipeRefresh.setOnRefreshListener {
-        //    refreshWeather()
-      //  }
-//        navBtn.setOnClickListener {
-//            drawerLayout.openDrawer(GravityCompat.START)
-//        }
+        swipeRefresh.setOnRefreshListener {
+            refreshWeather()
+        }
+        navBtn.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
         drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
             override fun onDrawerStateChanged(newState: Int) {}
 
@@ -83,7 +83,7 @@ class WeatherActivity : AppCompatActivity() {
 
     fun refreshWeather() {
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
-       // swipeRefresh.isRefreshing = true
+        swipeRefresh.isRefreshing = true
     }
 
     private fun showWeatherInfo(weather: Weather) {
@@ -98,7 +98,7 @@ class WeatherActivity : AppCompatActivity() {
         currentAQI.text = currentPM25Text
         nowLayout.setBackgroundResource(getSky(realtime.skycon).bg)
         // 填充forecast.xml布局中的数据
-//        forecastLayout.removeAllViews()
+        forecastLayout.removeAllViews()
         val days = daily.skycon.size
         for (i in 0 until days) {
             val skycon = daily.skycon[i]
